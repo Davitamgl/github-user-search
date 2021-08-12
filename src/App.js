@@ -1,29 +1,38 @@
 import React, { useState, useEffect } from "react";
+import { CircularProgress } from "@material-ui/core";
 import Card from "./components/card/card.component";
+import Navbar from "./components/navbar/navbar.component";
+import Form from "./components/form/form.component";
 
 import "./App.css";
 
-function App() {
+const App = () => {
   const [data, setData] = useState("");
+  const [repos, setRepos] = useState("");
+  const [loading, setLoading] = useState(true);
   const [userInput, setUserInput] = useState("");
 
-  useEffect(() => {
-    getData(`https://api.github.com/users/example`);
-  }, []);
+  const fetchData = async (url) => {
+    try {
+      setLoading(true);
+      const respData = await fetch(url);
+      const respRepos = await fetch(`${url}/repos`);
 
-  const getData = (url) => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setData(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
+      const dataJson = await respData.json();
+      const repoJson = await respRepos.json();
 
-    fetchData();
+      setData(dataJson);
+      setRepos(repoJson.map((repo) => repo.name).slice(0, 4));
+
+      setLoading(false);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
+
+  useEffect(() => {
+    fetchData("https://api.github.com/users/example");
+  }, []);
 
   const handleSearch = (e) => {
     setUserInput(e.target.value);
@@ -31,28 +40,24 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getData(`https://api.github.com/users/${userInput}`);
+    fetchData(`https://api.github.com/users/${userInput}`);
   };
 
   return (
-    <div className="App">
-      <div className="navbar">
-        <header>Github Search</header>
-      </div>
-      <div className="search">
-        <form className="search-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Github username"
-            onChange={handleSearch}
-          />
-
-          <button>Search</button>
-        </form>
-      </div>
-      <Card data={data} />
-    </div>
+    <>
+      {loading ? (
+        <div>
+          <CircularProgress style={{ marginLeft: "50vw", marginTop: "20vh" }} />
+        </div>
+      ) : (
+        <div className="App">
+          <Navbar />,
+          <Form handleSearch={handleSearch} handleSubmit={handleSubmit} />
+          <Card data={data} repos={repos} />
+        </div>
+      )}
+    </>
   );
-}
-
+};
+//<Card data={data} repos={repos} />
 export default App;
