@@ -32,10 +32,20 @@ const Card = ({
       <div className="repo-container">
         {repos.map((repo) => {
           return (
-            <div key={repo} className="repositories">
-             <span className="github-icon-holder"> <FiGithub className="github-icon"/></span>
-             <span> {repo}</span>
-            </div>
+            <a
+            className="repo-link"
+              href={`https://github.com/${login}/${repo}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button key={repo} className="repo-list">
+                <span className="github-icon-holder">
+                  {" "}
+                  <FiGithub className="github-icon" />
+                </span>
+                <span className="repos">{repo}</span>
+              </button>
+            </a>
           );
         })}
       </div>

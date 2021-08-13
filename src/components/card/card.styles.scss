@@ -16,7 +16,7 @@
   height: 60vh;
   flex-direction: column;
   background-color: #20202091;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 25px;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
@@ -44,7 +44,8 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: 0 0 0 10px #20202091, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000;
+  box-shadow: 0 0 0 10px #20202091, inset 0 0 0 5px #000000,
+    inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000;
   background: white;
   overflow: hidden;
 }
@@ -163,22 +164,60 @@
   }
 }
 
-.repositories {
+.repo-list {
   color: white;
   font-size: 14px;
   font-weight: 700;
-  height: 20%;
+  height: 25%;
   width: 80%;
-  margin: 5px auto;
-  padding: 3px;
+  margin: 2% auto;
+  padding: 1%;
   background-color: #3a3b3c;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
+  box-shadow: 0 10px 10px 0 rgba(58, 27, 27, 0.5);
+  cursor: pointer;
+  border: none;
+  &:a {
+    background-color: #3a3b3c;
+    color: white;
+    text-decoration: none;
+  }
+  &:hover {
+    color: black;
+    background-color: white;
+  }
 }
 
 .github-icon-holder {
-  margin-right: auto;
-  margin-left: 3px;
+  position: absolute;
+  margin: auto;
+
+  left: 12%;
 }
+
+.repo-link {
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+// .repo-link {
+//   text-decoration: none;
+//   color: inherit;
+//   position: absolute;
+//   margin: 5px auto;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   width: 80%;
+//   height: 25%;
+//   display: flex;
+//   justify-content: center;
+
+//   padding: 3px;
+// }
+// width: 10%;
+// margin-right: 0;
+// margin-left: 3px;
