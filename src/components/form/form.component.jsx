@@ -1,7 +1,7 @@
 import React  from "react";
 
 
-import "./form.styles.css";
+import "./form.styles.scss";
 
 const Form = ({handleSearch, handleSubmit}) => {
 

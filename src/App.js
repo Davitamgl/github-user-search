@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+
+
 import { CircularProgress } from "@material-ui/core";
 import Card from "./components/card/card.component";
 import Navbar from "./components/navbar/navbar.component";
 import Form from "./components/form/form.component";
 
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   const [data, setData] = useState("");
@@ -22,7 +24,7 @@ const App = () => {
       const repoJson = await respRepos.json();
 
       setData(dataJson);
-      setRepos(repoJson.map((repo) => repo.name).slice(0, 4));
+      setRepos(repoJson.map((repo) => repo.name).slice(0, 3));
 
       setLoading(false);
     } catch (error) {

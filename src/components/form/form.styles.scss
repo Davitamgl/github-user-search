@@ -1,20 +1,20 @@
 .search-form {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    margin: 30px auto;
-    border-radius: 10px;
-  }
-  .search-form input {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  border-radius: 10px;
+
+  input {
     border: none;
-  
     height: 40px;
     outline: none;
     border-radius: 10px;
     width: 77%;
     margin: 0 4px 0 0;
   }
-  .search-form button {
+
+  button {
     font-weight: 500;
     font-family: sans-serif;
     border: none;
@@ -23,4 +23,4 @@
     border-radius: 10px;
     outline: none;
   }
-  
+}
