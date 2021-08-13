@@ -35,6 +35,19 @@
 }
 
 .form-container {
-  margin: 5vh auto 5vh auto;
+  margin: 4vh auto 4vh auto;
 }
 
+.user-exists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 30px;
+  margin: 10px;
+
+  margin: 4vh auto 4vh auto;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: #fadcd9;
+}

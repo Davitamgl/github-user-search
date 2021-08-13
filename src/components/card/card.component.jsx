@@ -11,7 +11,7 @@ const Card = ({
     <div className="card-container">
       <div className="top-part"></div>
       <div className="image-container">
-        <img src={avatar_url}></img>
+        <img alt="i" src={avatar_url}></img>
       </div>
       <div className="username-holder">
         <a
@@ -33,14 +33,15 @@ const Card = ({
         {repos.map((repo) => {
           return (
             <a
-            className="repo-link"
+            key={repo}
+              className="repo-link"
               href={`https://github.com/${login}/${repo}`}
               target="_blank"
               rel="noreferrer"
             >
-              <button key={repo} className="repo-list">
+              <button  className="repo-list">
                 <span className="github-icon-holder">
-                  {" "}
+                  
                   <FiGithub className="github-icon" />
                 </span>
                 <span className="repos">{repo}</span>

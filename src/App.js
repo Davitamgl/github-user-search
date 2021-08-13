@@ -12,10 +12,12 @@ const App = () => {
   const [repos, setRepos] = useState("");
   const [loading, setLoading] = useState(true);
   const [userInput, setUserInput] = useState("");
+  const [userExists, setUserExists] = useState(true);
 
   const fetchData = async (url) => {
     try {
       setLoading(true);
+      setUserExists(true)
       const respData = await fetch(url);
       const respRepos = await fetch(`${url}/repos`);
 
@@ -26,7 +28,10 @@ const App = () => {
       setRepos(repoJson.map((repo) => repo.name).slice(0, 3));
 
       setLoading(false);
+      
     } catch (error) {
+      setUserExists(false);
+      setLoading(false);
       console.log("error", error);
     }
   };
@@ -53,7 +58,11 @@ const App = () => {
       ) : (
         <div className="App">
           <Navbar />
-          <Form handleSearch={handleSearch} handleSubmit={handleSubmit} />
+          <Form
+            handleSearch={handleSearch}
+            handleSubmit={handleSubmit}
+            userExists={userExists}
+          />
           <Card data={data} repos={repos} />
         </div>
       )}
