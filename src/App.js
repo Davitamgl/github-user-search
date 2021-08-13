@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 import { CircularProgress } from "@material-ui/core";
 import Card from "./components/card/card.component";
 import Navbar from "./components/navbar/navbar.component";
@@ -53,7 +52,7 @@ const App = () => {
         </div>
       ) : (
         <div className="App">
-          <Navbar />,
+          <Navbar />
           <Form handleSearch={handleSearch} handleSubmit={handleSubmit} />
           <Card data={data} repos={repos} />
         </div>

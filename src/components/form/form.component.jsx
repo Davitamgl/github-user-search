@@ -8,7 +8,7 @@ const Form = ({handleSearch, handleSubmit}) => {
 
 
 return(
-  <div>
+  <div className="form-container">
     <form className="search-form" onSubmit={handleSubmit}>
       <input
         type="text"
