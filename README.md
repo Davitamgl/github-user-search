@@ -5,7 +5,14 @@
   </a>
 </p>
 
-> An Application that searches Github users by the username, and renders users  followers/following quantity, number of repositories, and 3 random user repos
+> An Application that searches Github users by the username, and renders users  followers/following quantity, number of repositories, and 3 random user repos. The App renders "User not found" if the username is incorrect 
+> 
+### Built With
+* [React](https://reactjs.org/)
+* [React Icons](https://react-icons.github.io/react-icons/)
+* [Sass](https://sass-lang.com/m)
+* [Material-UI](https://material-ui.com/)
+  
 
 ### 🏠 [Homepage](http://Davitamgl.github.io/github-user-search)
 
