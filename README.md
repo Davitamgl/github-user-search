@@ -5,7 +5,7 @@
   </a>
 </p>
 
-> An Application that searches Github users by the username, and renders users  followers/following quantity, number of repositories, and 3 random user repos. The App renders "User not found" if the username is incorrect 
+> An Application that searches Github users by the username, and renders users  followers/following quantity, number of repositories, and 3 random user repos. The App features Spinning animation while loading and "User not Found" message if the username is incorrect.
 > 
 ### Built With
 * [React](https://reactjs.org/)
